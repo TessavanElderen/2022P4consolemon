@@ -10,12 +10,11 @@ namespace _2022P4consolemon
             Console.WriteLine("Hello World!");
         }
     }
-    // health , energy , name , age
-    // damage , energycost , name , weapons
     class ConsoleMon
     {
         internal int health = 100;
         internal int energy = 5;
+        internal Element weakness;
         internal void TakeDamage(int damage)
         {
             health -= damage;
@@ -29,6 +28,7 @@ namespace _2022P4consolemon
 
     class Skill
     {
+        internal Element weakness;
         internal int skillEnegry = 10;
         internal int skillDamage = 10;
         void UseOn(ConsoleMon target, ConsoleMon caster)
@@ -38,6 +38,13 @@ namespace _2022P4consolemon
         }
 
         List<string> spells = new List<string>();
-
     }
+    enum Element
+    {
+        bug,
+        electric,
+        fire,
+        water
+    }
+
 }
