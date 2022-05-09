@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _2022P4consolemon
 {
@@ -35,5 +36,8 @@ namespace _2022P4consolemon
             caster.DepleteEnergy(skillEnegry);
             target.TakeDamage(skillDamage);
         }
+
+        List<string> spells = new List<string>();
+
     }
 }
