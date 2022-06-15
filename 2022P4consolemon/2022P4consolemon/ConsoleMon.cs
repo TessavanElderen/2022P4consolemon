@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
-
-namespace _2022P4consolemon
+using System;
+namespace ConsoleMon
 {
     class ConsoleMon
     {
+        internal string name, MonsterType;
+        internal int damage;
         internal int health = 100;
         internal int energy = 5;
         internal Element weakness;
 
-        List<Skill> spells = new List<Skill>();
+        internal List<Skill> spells = new List<Skill>();
 
 
         internal void TakeDamage(int damage)
@@ -21,7 +23,7 @@ namespace _2022P4consolemon
             energy -= energy;
         }
 
-        internal ConsoleMon(Skill other)
+        internal ConsoleMon()
         {
 
         }
@@ -37,6 +39,22 @@ namespace _2022P4consolemon
                 Skill flamethrowerClone = new Skill(spell);
                 spells.Add(flamethrowerClone);
             }
+        }
+    }
+    class ConsoleMonArena
+    { 
+        public void DoBattle(ConsoleMon a, ConsoleMon b)
+        {
+            Random random = new Random();
+            Skill skilla = a.spells[random.Next(2)];
+            Skill skillb = b.spells[random.Next(2)];
+            while (a.health > 0 || b.health > 0)
+            {               
+                skilla.UseOn(b, a);
+                skillb.UseOn(a, b);
+                Console.WriteLine(a.health);
+                Console.WriteLine(b.health);
+            }  
         }
     }
 }

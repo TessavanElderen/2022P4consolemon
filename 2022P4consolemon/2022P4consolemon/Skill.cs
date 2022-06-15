@@ -1,12 +1,13 @@
-﻿namespace _2022P4consolemon
+﻿namespace ConsoleMon
 {
     class Skill
     {
+        internal string name;
         internal Element skillWeakness;
         internal int skillEnegry = 10;
         internal int skillDamage = 10;
 
-        void UseOn(ConsoleMon target, ConsoleMon caster)
+        public void UseOn(ConsoleMon target, ConsoleMon caster)
         {
             caster.DepleteEnergy(skillEnegry);
             target.TakeDamage(skillDamage);
